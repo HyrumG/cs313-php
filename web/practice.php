@@ -9,7 +9,7 @@
     <?php
     
       for ($i = 0; $i < 10; $i++) {
-        echo "<div id=></div>\n";
+        echo "<div id=\"Div\$i + 1\"></div>\n";
       }
     
     ?>
