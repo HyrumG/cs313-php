@@ -1,0 +1,30 @@
+h1 {
+  font-size: 3em;
+}
+
+body {
+  background-color: darkgray;
+}
+
+ul {
+  text-align: center; 
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+li {
+  font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  font-size: 1em;
+  color: aqua;
+}
