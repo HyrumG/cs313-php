@@ -19,18 +19,18 @@
     <h1 style="text-align: center">CS 313 Assignments</h1>
 
     <ul style="text-align: center; list-style-position: inside">
-      <li><a href="assign01.html">Assignment #01.html</a></li>
-      <li><a href="">Assignment #02.html</a></li>
-      <li><a href="">Assignment #03.html</a></li>
-      <li><a href="">Assignment #04.html</a></li>
-      <li><a href="">Assignment #05.html</a></li>
-      <li><a href="">Assignment #06.html</a></li>
-      <li><a href="">Assignment #07.html</a></li>
-      <li><a href="">Assignment #08.html</a></li>
-      <li><a href="">Assignment #09.html</a></li>
-      <li><a href="">Assignment #10.html</a></li>
-      <li><a href="">Assignment #11.html</a></li>
-      <li><a href="">Assignment #12.html</a></li>
+      <li><a href="assign01.html">Assignment #01</a></li>
+      <li><a href="browse.php">Assignment #02</a></li>
+      <li><a href="">Assignment #03</a></li>
+      <li><a href="">Assignment #04</a></li>
+      <li><a href="">Assignment #05</a></li>
+      <li><a href="">Assignment #06</a></li>
+      <li><a href="">Assignment #07</a></li>
+      <li><a href="">Assignment #08</a></li>
+      <li><a href="">Assignment #09</a></li>
+      <li><a href="">Assignment #10</a></li>
+      <li><a href="">Assignment #11</a></li>
+      <li><a href="">Assignment #12</a></li>
     </ul>
   </body>
 </html>
