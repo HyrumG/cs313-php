@@ -1,3 +1,31 @@
+<?php
+
+try 
+{
+	$dbUrl = getenv('DATABASE_URL');
+
+	$dbopts = parse_url($dbUrl);
+
+	$dbHost = $dbopts["host"];
+	$dbPort = $dbopts["port"];
+	$dbUser = $dbopts["user"];
+	$dbPassword = $dbopts["pass"];
+	$dbName = ltrim($dbopts["path"],'/');
+
+	$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex)
+{
+  echo 'Error!: ' . $ex->getMessage();
+  die();
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +35,7 @@
 <?php
 
 
-	$query = "SELECT u.name, d.last_changed, d.dry, d.wet, d.dirty, d.mixed FROM \"user\" u INNER JOIN diaper d ON u.id = d.id;";
+	$query = "SELECT u.name, d.last_changed, d.dry, d.wet, d.dirty, d.mixed FROM 'user' u INNER JOIN diaper d ON u.id = d.id;";
 
 	$count = 0;
 
