@@ -35,8 +35,10 @@ catch (PDOException $ex)
 <?php
 
 
-	$query = "SELECT u.name, d.last_changed, d.dry, d.wet, d.dirty, d.mixed FROM 'user' u INNER JOIN diaper d ON u.id = d.id;";
+	$query = "SELECT u.name, d.last_changed FROM 'user' u INNER JOIN diaper d ON u.id = d.id;";
 
+
+// SELECT u.name, d.last_changed, d.dry, d.wet, d.dirty, d.mixed FROM 'user' u INNER JOIN diaper d ON u.id = d.id;"
 	$count = 0;
 
 	foreach ($db->query($query) as $user) {
