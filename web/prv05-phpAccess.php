@@ -41,11 +41,11 @@ catch (PDOException $ex)
 // // SELECT u.name, d.last_changed, d.dry, d.wet, d.dirty, d.mixed FROM 'user' u INNER JOIN diaper d ON u.id = d.id;"
 // 	$count = 0;
 
-// 	foreach ($db->query($query) as $user) {
-// 	$name = $user["name"];
+	foreach ($db->query($query) as $user) {
+	$name = $user["name"];
 
-// 	echo "<li>Name: $name</li>";	
-// }
+	echo "<li>Name: $name</li>";	
+}
 
 // 	foreach ($db->query($query) as $diaper) {
 // 	$last_changed = $diaper["last_changed"];
