@@ -32,7 +32,7 @@ $courses = $statement->fetchAll(PDO::FETCH_ASSOC);
 	<ul>
 <?php  
 
-	foreach ($cour as $course) {
+	foreach ($courses as $course) {
 		$name = $course["name"];
 		$number = $course["number"];
 
