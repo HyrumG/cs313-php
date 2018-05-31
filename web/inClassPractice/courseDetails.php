@@ -33,9 +33,11 @@ $name = $row["name"];
 
 <form action="insertNote.php" method="POST">
 	<input type="hidden" name="course_id" value="<?php echo $course_id; ?>">
-	<input type="date" name="date">
-	<br>
+	<input type="date" name="date"><br>
 	<textarea name="content" placeholder="Content"></textarea>
+	<br>
+	<br>
+	<input type="submit" value="Add Note">
 </form>
 </body>
 </html>
