@@ -40,6 +40,7 @@ catch (PDOException $ex)
 	</form>
 
 <?php
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 	
 	$userName = $_POST['username'];
 	$passwd = $_POST['password'];
@@ -52,8 +53,9 @@ catch (PDOException $ex)
 	$stmt->bindvalue(":user", $userName, PDO::PARAM_STR);
 	$stmt->bindvalue(":pass", $passwordHash, PDO::PARAM_STR);
 
+	
 	$stmt->execute();
-
+	}
 ?>
 
 </body>
@@ -63,7 +65,7 @@ catch (PDOException $ex)
 
 <?php
 
-header('Location: ' . 'sign-in.php');
+// header('Location: ' . 'sign-in.php');
 
 ?>
 
