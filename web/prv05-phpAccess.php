@@ -24,10 +24,11 @@ $db = get_db();
 
 <?php  
 	
-	$fname = $_POST['fname'];
-	$lname = $_POST['lname'];
+	$fname = htmlspecialchars($_POST['fname']);
+	$lname = htmlspecialchars($_POST['lname']);
 	$arr = array($fname, $lname);
-	$pName = implode(" ", $arr) . "<br>";
+	// $pName = implode(" ", $arr) . "<br>";
+	$pName = "$fname $lname";
 	echo "<p>$pName</p><br>";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
