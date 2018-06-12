@@ -27,14 +27,14 @@ $db = get_db();
 	$fname = $_POST['fname'];
 	$lname = $_POST['lname'];
 	$arr = array($fname, $lname);
-	$pname = implode(" ", $arr) . "<br>";
-	// echo "<p>$pname</p><br>";
+	$pName = implode(" ", $arr) . "<br>";
+	echo "<p>$pname</p><br>";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
-		$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.parent_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id WHERE p.name=:pname";
+		$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.parent_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id WHERE p.name=:parentName";
 
 		$statement = $db->prepare($query);
-		$statement->bindValue(":pname", $pname, PDO::PARAM_INT);
+		$statement->bindValue(":parentName", $pName, PDO::PARAM_INT);
 		// Bind any variables I need here...
 		$statement->execute();
 		$diapers = $statement->fetchAll(PDO::FETCH_ASSOC);
