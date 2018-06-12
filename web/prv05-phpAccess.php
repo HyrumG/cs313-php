@@ -17,6 +17,9 @@ $db = get_db();
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 		First Name: <input type="text" name="fname">
 		Last Name: <input type="text" name="lname">
+		<br>
+		<br>
+		<input type="submit" name="submit">
 	</form>
 
 <?php  
