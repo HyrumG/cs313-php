@@ -21,8 +21,8 @@
     <ul style="text-align: center; list-style-position: inside">
       <li><a href="assign01.html">Assignment #01</a></li>
       <li><a href="browse.php">Assignment #02</a></li>
-      <li><a href="">Assignment #03</a></li>
-      <li><a href="">Assignment #04</a></li>
+      <li><a href="prv05-phpAccess.php">PHP Project</a></li>
+      <!-- <li><a href="">Assignment #04</a></li>
       <li><a href="">Assignment #05</a></li>
       <li><a href="">Assignment #06</a></li>
       <li><a href="">Assignment #07</a></li>
@@ -30,7 +30,7 @@
       <li><a href="">Assignment #09</a></li>
       <li><a href="">Assignment #10</a></li>
       <li><a href="">Assignment #11</a></li>
-      <li><a href="">Assignment #12</a></li>
+      <li><a href="">Assignment #12</a></li> -->
     </ul>
   </body>
 </html>
