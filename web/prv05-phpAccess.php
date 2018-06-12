@@ -1,27 +1,7 @@
 <?php
 
-try 
-{
-	$dbUrl = getenv('DATABASE_URL');
-
-	$dbopts = parse_url($dbUrl);
-
-	$dbHost = $dbopts["host"];
-	$dbPort = $dbopts["port"];
-	$dbUser = $dbopts["user"];
-	$dbPassword = $dbopts["pass"];
-	$dbName = ltrim($dbopts["path"],'/');
-
-	$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $ex)
-{
-  echo 'Error!: ' . $ex->getMessage();
-  die();
-}
-
+require "dbConnect.php";
+$db = get_db();
 
 ?>
 
@@ -35,39 +15,15 @@ catch (PDOException $ex)
 <?php
 
 
-	$query = "SELECT u.name FROM 'user' u";
+	$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.user_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id";
 
+	foreach ($db->query($query) as $parent) {
+	$name = $parent["name"];
+	$last_changed = $diaper_change["last_changed"];
+	$status = $diaper_status["status"];
 
-// // SELECT u.name, d.last_changed, d.dry, d.wet, d.dirty, d.mixed FROM 'user' u INNER JOIN diaper d ON u.id = d.id;"
-// 	$count = 0;
-
-	foreach ($db->query($query) as $user) {
-	$name = $user["name"];
-
-	echo "<li>Name: $name</li>";	
+	echo "<li>Name: $name, last changed: $last_changed, status: $status</li>";	
 }
-
-// 	foreach ($db->query($query) as $diaper) {
-// 	$last_changed = $diaper["last_changed"];
-// 	$dry = $diaper["dry"];
-// 	$wet = $diaper["wet"];
-// 	$dirty = $diaper["dirty"];
-// 	$mixed = $diaper["mixed"];
-
-// 	echo "<li>Last Changed: $last_changed. Dipaer was ";
-// 	if ($dry)
-// 		echo "dry.";
-// 	elseif ($wet) {
-// 		echo "wet.";
-// 	}
-// 	elseif ($dirty) {
-// 		echo "dirty.";
-// 	}
-// 	elseif ($mixed) {
-// 		echo "mixed.";
-// 	}
-// 	echo "</li></br>";	
-// }
 
 ?>
 </body>
