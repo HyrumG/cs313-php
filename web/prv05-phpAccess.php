@@ -15,13 +15,13 @@ $db = get_db();
 <?php
 
 
-	$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.user_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id";
+	$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.parent_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id";
 
 	$statement = $db->prepare($query);
 
 // Bind any variables I need here...
 $statement->execute();
-
+var_dump();
 $diapers = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 	foreach ($diapers as $parent) {
