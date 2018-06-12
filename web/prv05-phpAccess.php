@@ -26,8 +26,8 @@ var_dump($diapers);
 
 	foreach ($diapers as $parent) {
 	$name = $parent["name"];
-	$last_changed = $diaper_change["last_changed"];
-	$status = $diaper_status["status"];
+	$last_changed = $parent["last_changed"];
+	$status = $parent["status"];
 
 	echo "<li>Name: $name, last changed: $last_changed, status: $status</li>";	
 }
