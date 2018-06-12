@@ -21,8 +21,8 @@ $db = get_db();
 
 // Bind any variables I need here...
 $statement->execute();
-var_dump();
 $diapers = $statement->fetchAll(PDO::FETCH_ASSOC);
+var_dump($diapers);
 
 	foreach ($diapers as $parent) {
 	$name = $parent["name"];
