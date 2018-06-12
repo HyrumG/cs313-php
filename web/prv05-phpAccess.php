@@ -29,9 +29,7 @@ $db = get_db();
 	$arr = array($fname, $lname);
 	$pname = implode(" ", $arr) . "<br>";
 	// echo "<p>$pname</p><br>";
-?>
 
-<?php
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
 		$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.parent_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id WHERE p.name=:pname";
 
