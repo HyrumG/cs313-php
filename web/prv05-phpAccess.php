@@ -27,28 +27,30 @@ $db = get_db();
 	$fname = $_POST['fname'];
 	$lname = $_POST['lname'];
 	$arr = array($fname, $lname);
-	echo implode(" ", $arr) . "<br>";
+	$pname = implode(" ", $arr) . "<br>";
+	echo "<p>$pname</p><br>";
 ?>
 
 <?php
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {	
+		$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.parent_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id";
 
-	$query = "SELECT p.name, dc.last_changed, ds.status FROM diaper_change dc INNER JOIN parent p ON dc.parent_id=p.id INNER JOIN diaper_status ds ON ds.id=dc.status_id";
+		$statement = $db->prepare($query);
 
-	$statement = $db->prepare($query);
+		// Bind any variables I need here...
+		$statement->execute();
+		$diapers = $statement->fetchAll(PDO::FETCH_ASSOC);
+	// var_dump($diapers);
 
-	// Bind any variables I need here...
-	$statement->execute();
-	$diapers = $statement->fetchAll(PDO::FETCH_ASSOC);
-// var_dump($diapers);
+		foreach ($diapers as $parent) {
+		$name = $parent["name"];
+		$last_changed = $parent["last_changed"];
+		$status = $parent["status"];
 
-	foreach ($diapers as $parent) {
-	$name = $parent["name"];
-	$last_changed = $parent["last_changed"];
-	$status = $parent["status"];
+		echo "<li>Name: $name, last changed: $last_changed, status: $status</li><br><br>";	
 
-	echo "<li>Name: $name, last changed: $last_changed, status: $status</li><br><br>";	
-}
-
+		}
+	}
 ?>
 </body>
 </html>
