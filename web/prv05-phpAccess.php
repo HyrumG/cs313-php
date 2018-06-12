@@ -47,8 +47,8 @@ $db = get_db();
 
 	// 	echo "<li>Name: $name, last changed: $last_changed, status: $status</li><br><br>";	
 
-		}
-	}
+	// 	}
+	// }
 ?>
 </body>
 </html>
